@@ -1,14 +1,21 @@
 {
-  "name": "chan-ui",
+  "name": "@ckstn0777/chan-ui",
   "version": "0.1.0",
-  "private": true,
+  "description": "chan-ui design system",
+  "author": "Chansu Kim <ckstn0777@naver.com>",
+  "license": "MIT",
+  "homepage": "https://ckstn0777.github.io/chan-ui/",
+  "repository": "https://github.com/ckstn0777/chan-ui/",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "build": "rollup -c"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
@@ -25,6 +32,27 @@
     "typescript": "^4.8.4",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "@emotion/babel-plugin": "^11.10.2",
+    "@emotion/babel-preset-css-prop": "^11.10.0",
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-typescript": "^9.0.2",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-interactions": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/builder-webpack5": "^6.5.12",
+    "@storybook/manager-webpack5": "^6.5.12",
+    "@storybook/node-logger": "^6.5.12",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^6.5.12",
+    "@storybook/testing-library": "^0.0.13",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "prop-types": "^15.8.1",
+    "rollup": "^2.79.1",
+    "rollup-plugin-dts": "^5.0.0",
+    "webpack": "^5.74.0"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -33,7 +61,8 @@
     "overrides": [
       {
         "files": [
-          "**/*.stories.*"
+          "**/*.stories.*",
+          "*.config.js"
         ],
         "rules": {
           "import/no-anonymous-default-export": "off"
@@ -53,21 +82,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@emotion/babel-plugin": "^11.10.2",
-    "@emotion/babel-preset-css-prop": "^11.10.0",
-    "@storybook/addon-actions": "^6.5.12",
-    "@storybook/addon-essentials": "^6.5.12",
-    "@storybook/addon-interactions": "^6.5.12",
-    "@storybook/addon-links": "^6.5.12",
-    "@storybook/builder-webpack5": "^6.5.12",
-    "@storybook/manager-webpack5": "^6.5.12",
-    "@storybook/node-logger": "^6.5.12",
-    "@storybook/preset-create-react-app": "^4.1.2",
-    "@storybook/react": "^6.5.12",
-    "@storybook/testing-library": "^0.0.13",
-    "babel-plugin-named-exports-order": "^0.0.2",
-    "prop-types": "^15.8.1",
-    "webpack": "^5.74.0"
-  }
+  "files": [
+    "dist"
+  ]
 }

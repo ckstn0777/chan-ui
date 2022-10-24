@@ -45,22 +45,23 @@ const schemes: Record<ButtonType, ButtonColorScheme> = {
     background: lightColorTheme.primary,
     hover: lightColorTheme['primary-hover'],
     active: lightColorTheme['primary-active'],
-    text: 'black',
+    text: lightColorTheme['element-text'],
   },
   secondary: {
-    background: '',
-    hover: '',
-    active: '',
-    text: '',
+    background: lightColorTheme.secondary,
+    hover: lightColorTheme['secondary-hover'],
+    active: lightColorTheme['secondary-active'],
+    text: lightColorTheme['element-text'],
   },
   destructive: {
-    background: '',
-    hover: '',
-    active: '',
-    text: '',
+    background: lightColorTheme.destructive,
+    hover: lightColorTheme['destructive-hover'],
+    active: lightColorTheme['destructive-active'],
+    text: lightColorTheme['element-text'],
   },
 }
 
+// type에 따른 색상 값 지정
 const defaultStyle = (scheme: ButtonColorScheme) => css`
   background: ${scheme.background};
   color: ${scheme.text};
@@ -72,6 +73,7 @@ const defaultStyle = (scheme: ButtonColorScheme) => css`
   }
 `
 
+// 기본 버튼 스타일
 const buttonStyle = (size: Size) => css`
   border: none;
   outline: none;

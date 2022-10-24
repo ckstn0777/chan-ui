@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from '@emotion/react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { lightColorTheme } from './palette'
+import { darkColorTheme, lightColorTheme } from './palette'
 
 export default {
   title: 'Design System/Color',
@@ -35,8 +35,8 @@ const ColorList = ({
   </>
 )
 
-const Template: ComponentStory<any> = () => {
-  const colors = lightColorTheme
+const Template: ComponentStory<any> = (arg: any) => {
+  const colors = arg.isLight ? lightColorTheme : darkColorTheme
 
   return (
     <div css={wrapper}>
@@ -50,7 +50,15 @@ const Template: ComponentStory<any> = () => {
   )
 }
 
-export const Default = Template.bind({})
+export const LightTheme = Template.bind({})
+LightTheme.args = {
+  isLight: true,
+}
+
+export const DarkTheme = Template.bind({})
+DarkTheme.args = {
+  isLight: false,
+}
 
 const wrapper = css`
   display: flex;
