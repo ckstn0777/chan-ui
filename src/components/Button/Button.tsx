@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import React from 'react'
 import { Size, sizeSets } from '../../lib/sizes'
-import { lightColorTheme } from '../../styles/color/palette'
+import { cssVar } from '../../styles/color/palette'
 
 type ButtonType = 'primary' | 'secondary' | 'destructive'
 // type ButtonVariant = 'default' | 'outline' | 'ghost'
@@ -42,22 +42,22 @@ export function Button({
 
 const schemes: Record<ButtonType, ButtonColorScheme> = {
   primary: {
-    background: lightColorTheme.primary,
-    hover: lightColorTheme['primary-hover'],
-    active: lightColorTheme['primary-active'],
-    text: lightColorTheme['element-text'],
+    background: cssVar('primary'),
+    hover: cssVar('primary-hover'),
+    active: cssVar('primary-active'),
+    text: cssVar('element-text'),
   },
   secondary: {
-    background: lightColorTheme.secondary,
-    hover: lightColorTheme['secondary-hover'],
-    active: lightColorTheme['secondary-active'],
-    text: lightColorTheme['element-text'],
+    background: cssVar('secondary'),
+    hover: cssVar('secondary-hover'),
+    active: cssVar('secondary-active'),
+    text: cssVar('element-text'),
   },
   destructive: {
-    background: lightColorTheme.destructive,
-    hover: lightColorTheme['destructive-hover'],
-    active: lightColorTheme['destructive-active'],
-    text: lightColorTheme['element-text'],
+    background: cssVar('destructive'),
+    hover: cssVar('destructive-hover'),
+    active: cssVar('destructive-active'),
+    text: cssVar('element-text'),
   },
 }
 

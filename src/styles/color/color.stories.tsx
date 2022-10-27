@@ -36,7 +36,9 @@ const ColorList = ({
 )
 
 const Template: ComponentStory<any> = (arg: any) => {
-  const colors = arg.isLight ? lightColorTheme : darkColorTheme
+  const colors = arg.isLight
+    ? lightColorTheme(arg.theme)
+    : darkColorTheme(arg.theme)
 
   return (
     <div css={wrapper}>
@@ -50,14 +52,10 @@ const Template: ComponentStory<any> = (arg: any) => {
   )
 }
 
-export const LightTheme = Template.bind({})
-LightTheme.args = {
+export const VeloTheme = Template.bind({})
+VeloTheme.args = {
+  theme: 'velo',
   isLight: true,
-}
-
-export const DarkTheme = Template.bind({})
-DarkTheme.args = {
-  isLight: false,
 }
 
 const wrapper = css`
