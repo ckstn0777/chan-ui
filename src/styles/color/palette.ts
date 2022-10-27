@@ -15,6 +15,14 @@ export const lightColorTheme = {
   primary: '#009688',
   'primary-hover': '#007e72',
   'primary-active': '#007267',
+  secondary: '#c6e8e6',
+  'secondary-hover': '#b6e1de',
+  'secondary-active': '#a6dbd7',
+  destructive: '#f44336',
+  'destructive-hover': '#cd382d',
+  'destructive-active': '#a62e25',
+
+  'element-text': '#ffffff',
 
   /** Status Color */
 }
@@ -36,6 +44,8 @@ export const darkColorTheme = {
   primary: '#73e6db',
   'primary-hover': '#61d9ce',
   'primary-active': '#4eccc0',
+
+  'element-text': '#121212',
 
   /** Status Color */
 }
