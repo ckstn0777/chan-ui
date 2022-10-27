@@ -1,6 +1,6 @@
 {
   "name": "@ckstn0777/chan-ui",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "chan-ui design system",
   "author": "Chansu Kim <ckstn0777@naver.com>",
   "license": "MIT",
@@ -53,6 +53,7 @@
     "prop-types": "^15.8.1",
     "rollup": "^2.79.1",
     "rollup-plugin-dts": "^5.0.0",
+    "rollup-plugin-node-externals": "^5.0.1",
     "webpack": "^5.74.0"
   },
   "eslintConfig": {
