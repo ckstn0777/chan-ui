@@ -1,4 +1,5 @@
 /* eslint-disable */
+import externals from 'rollup-plugin-node-externals'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts'
@@ -20,7 +21,7 @@ export default [
         sourcemap: true,
       },
     ],
-    plugins: [commonjs(), typescript()],
+    plugins: [externals(), commonjs(), typescript()],
   },
   {
     input: 'src/index.ts',
