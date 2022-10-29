@@ -1,2 +1,2 @@
 export * from './ChanProvider'
-export { useMode } from './ModeProvider'
+export { useModeContext } from './ModeProvider'

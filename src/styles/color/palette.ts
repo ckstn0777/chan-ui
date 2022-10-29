@@ -17,9 +17,9 @@ export const lightColorTheme = (theme: Theme) => ({
 
   /** Brand Color */
   ...getThemeAndMode(theme, 'light'),
+  '--element-text': '#ffffff',
 
   /** Status Color */
-  '--element-text': '#ffffff',
 })
 
 export const darkColorTheme = (theme: Theme) => ({
@@ -37,7 +37,7 @@ export const darkColorTheme = (theme: Theme) => ({
 
   /** Brand Color */
   ...getThemeAndMode(theme, 'dark'),
+  '--element-text': '#121212',
 
   /** Status Color */
-  '--element-text': '#121212',
 })

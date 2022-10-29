@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDarkMode } from 'storybook-dark-mode'
-import { useMode } from '../context/ModeProvider'
+import { useModeContext } from '../context/ModeProvider'
 
 export default function StorybookWrapper({
   children,
@@ -8,7 +8,7 @@ export default function StorybookWrapper({
   children: React.ReactNode
 }) {
   const darkTheme = useDarkMode()
-  const { setMode } = useMode()
+  const { setMode } = useModeContext()
 
   useEffect(() => {
     setMode(darkTheme ? 'dark' : 'light')

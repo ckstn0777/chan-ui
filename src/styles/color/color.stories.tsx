@@ -2,6 +2,7 @@ import React from 'react'
 import { css } from '@emotion/react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { darkColorTheme, lightColorTheme } from './palette'
+import { useModeContext } from '../../context'
 
 export default {
   title: 'Design System/Color',
@@ -11,7 +12,7 @@ export default {
 const Color = ({ name, color }: { name: string; color: string }) => (
   <div css={colorWrapper}>
     <div css={colorBox(color)}></div>
-    <b>{name}</b>
+    <b>{name.slice(2)}</b>
     <p>{color}</p>
   </div>
 )
@@ -36,9 +37,10 @@ const ColorList = ({
 )
 
 const Template: ComponentStory<any> = (arg: any) => {
-  const colors = arg.isLight
-    ? lightColorTheme(arg.theme)
-    : darkColorTheme(arg.theme)
+  const { isDarkMode } = useModeContext()
+  const colors = isDarkMode
+    ? darkColorTheme(arg.theme)
+    : lightColorTheme(arg.theme)
 
   return (
     <div css={wrapper}>
@@ -47,6 +49,8 @@ const Template: ComponentStory<any> = (arg: any) => {
         <h2>Color</h2>
         <ColorList colors={colors} namespace="accent" />
         <ColorList colors={colors} namespace="primary" />
+        <ColorList colors={colors} namespace="secondary" />
+        <ColorList colors={colors} namespace="destructive" />
       </section>
     </div>
   )
@@ -55,7 +59,11 @@ const Template: ComponentStory<any> = (arg: any) => {
 export const VeloTheme = Template.bind({})
 VeloTheme.args = {
   theme: 'velo',
-  isLight: true,
+}
+
+export const WjtbTheme = Template.bind({})
+WjtbTheme.args = {
+  theme: 'wjtb',
 }
 
 const wrapper = css`
@@ -76,13 +84,27 @@ const colorRowWrapper = css`
   display: flex;
   flex-direction: row;
   gap: 1rem;
+
+  & > * {
+    flex-basis: 7%;
+  }
 `
 
 const colorWrapper = css`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+
+  gap: 0.25rem;
+
+  p {
+    margin: 0;
+  }
+
+  b {
+    text-align: center;
+  }
 `
 
 const colorBox = (color: string) => css`

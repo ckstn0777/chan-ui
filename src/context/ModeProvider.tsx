@@ -12,6 +12,7 @@ const ModeContext =
   createContext<{
     mode: Mode
     setMode(mode: Mode): void
+    isDarkMode: boolean
     toggle(): void
   } | null>(null)
 
@@ -76,13 +77,13 @@ export function ModeProvider({ children, initialMode = 'default' }: Props) {
   }, [isDarkMode])
 
   return (
-    <ModeContext.Provider value={{ mode, setMode, toggle }}>
+    <ModeContext.Provider value={{ mode, setMode, isDarkMode, toggle }}>
       {children}
     </ModeContext.Provider>
   )
 }
 
-export function useMode() {
+export function useModeContext() {
   const context = useContext(ModeContext)
   if (!context) {
     throw new Error('Cannot find ModeProvider')

@@ -1,6 +1,10 @@
 import { css, Global } from '@emotion/react'
-import React, { createContext, useState, useCallback } from 'react'
-import { darkColorTheme, lightColorTheme } from '../styles/color/palette'
+import React, { createContext, useState } from 'react'
+import {
+  cssVar,
+  darkColorTheme,
+  lightColorTheme,
+} from '../styles/color/palette'
 import { Theme } from '../styles/color/theme'
 
 const ThemeContext =
@@ -44,5 +48,11 @@ const styles = (theme: Theme) => css`
 
   body[data-mode='dark'] {
     ${darkColorTheme(theme)}
+  }
+
+  /** color, background color 변경  */
+  body {
+    color: ${cssVar('accent-9')};
+    background: ${cssVar('accent-2')};
   }
 `
