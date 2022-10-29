@@ -1,5 +1,5 @@
 import { css, Global } from '@emotion/react'
-import React, { createContext, useState } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 import {
   cssVar,
   darkColorTheme,
@@ -24,7 +24,7 @@ export function ThemeProvider({ children, initialTheme = 'velo' }: Props) {
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
-      <Global styles={styles(initialTheme)} />
+      <Global styles={styles(theme)} />
     </ThemeContext.Provider>
   )
 }
@@ -56,3 +56,11 @@ const styles = (theme: Theme) => css`
     background: ${cssVar('accent-2')};
   }
 `
+
+export function useThemeContext() {
+  const context = useContext(ThemeContext)
+  if (!context) {
+    throw new Error('Cannot find ThemeContext')
+  }
+  return context
+}

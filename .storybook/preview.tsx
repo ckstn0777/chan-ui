@@ -18,12 +18,19 @@ export const parameters = {
     light: { ...themes.normal },
     stylePreview: true,
   },
+  themes: {
+    default: 'velo',
+    list: [
+      { name: 'velo', class: 'theme-velo', color: '#009688' },
+      { name: 'wjtb', class: 'theme-wjtb', color: '#ffa000' },
+    ],
+  },
 }
 
 export const decorators = [
   (Story) => {
     return (
-      <ChanProvider initialTheme="wjtb">
+      <ChanProvider initialTheme="velo">
         <StorybookWrapper>
           <Story />
         </StorybookWrapper>
